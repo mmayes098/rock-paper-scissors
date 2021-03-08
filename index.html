@@ -8,7 +8,32 @@
         <script>
             const choices = ["Rock", "Paper", "Scissors"];
             function computerPlay(array) {
-                return array[Math.floor(Math.random() * array.length)];
+                return array[~~(Math.random() * array.length)];
+            }
+            function playRound(playerSelection, computerSelection) {
+                var player = playerSelection.toLowerCase();
+                var computer = computerSelection.toLowerCase();
+                if (player === computer) {
+                    return `You tied! You both played ${player}!`;
+                } else if (player === "rock") {
+                    if (computer === "paper") {
+                        return `You lose! Their ${computer} covers your ${player}!`;
+                    } else if (computer === "scissors") {
+                        return `You win! Their ${computer} were crushed by your ${player}!`;
+                    }
+                } else if (player === "paper") {
+                    if (computer === "rock") {
+                        return `You win! Their ${computer} was covered by your ${player}!`;
+                    } else if (computer === "scissors") {
+                        return `You lose! Their ${computer} cut your ${player}!`;
+                    }
+                } else if (player === "scissors") {
+                    if (computer === "paper") {
+                        return `You win! Their ${computer} was cut by your ${player}!`;
+                    } else if (computer === "rock") {
+                        return `You lose! Their ${computer} crushed your ${player}!`;
+                    }
+                }
             }
             
         </script>
