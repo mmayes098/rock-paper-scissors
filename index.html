@@ -2,56 +2,30 @@
 <html lang="en-US">
     <head>
         <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
-        <title>JavaScript Test Page</title>
+        <title>Rock, Paper, Scissors!</title>
+        <style type="text/css">
+            h1 {
+                text-align: center;
+            }
+
+            h3 {
+                text-align: center;
+            }
+
+            .buttons {
+                text-align: center;
+            }
+        </style>
     </head>
     <body>
-        <script>
-            const choices = ["Rock", "Paper", "Scissors"];
-            var score = 0;
-            function computerPlay(array) {
-                return array[~~(Math.random() * array.length)];
-            }
-            function playRound(playerSelection, computerSelection) {
-                var player = playerSelection.toLowerCase();
-                var computer = computerSelection.toLowerCase();
-                if (player === computer) {
-                    return `You tied! You both played ${player}!`;
-                } else if (player === "rock") {
-                    if (computer === "paper") {
-                        return `You lose! Their ${computer} covers your ${player}!`;
-                    } else if (computer === "scissors") {
-                        score++;
-                        return `You win! Their ${computer} were crushed by your ${player}!`;
-                    }
-                } else if (player === "paper") {
-                    if (computer === "rock") {
-                        score++;
-                        return `You win! Their ${computer} was covered by your ${player}!`;
-                    } else if (computer === "scissors") {
-                        return `You lose! Their ${computer} cut your ${player}!`;
-                    }
-                } else if (player === "scissors") {
-                    if (computer === "paper") {
-                        score++;
-                        return `You win! Their ${computer} was cut by your ${player}!`;
-                    } else if (computer === "rock") {
-                        return `You lose! Their ${computer} crushed your ${player}!`;
-                    }
-                }
-            }
-            function game(times) {
-                for (let i = 1; i <= times; i++) {
-                    playerSelection = window.prompt("Rock, Paper, or Scissors?");
-                    computerSelection = computerPlay(choices);
-                    console.log(playRound(playerSelection, computerSelection));
-                }
-                if (score > (times / 2)) {
-                    console.log(`You win! You won a total of ${score} rounds!`);
-                } else {
-                    console.log("You lost!");
-                }
-            }
-            console.log(game(5));
-        </script>
+        <h1>Welcome to Rock, Paper, Scissors!</h1>
+        <h3>Choose one:</h3>
+        <div class = "buttons">
+            <button class="choices" id="rock" type="button">Rock</button>
+            <button class="choices" id="paper" type="button">Paper</button>
+            <button class="choices" id="scissors" type="button">Scissors</button>
+        </div>
+        <div id="score"></div>
+        <script type="text/javascript" src="game.js"></script>
     </body>
 </html>
